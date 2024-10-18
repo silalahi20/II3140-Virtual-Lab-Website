@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Programming Virtual Lab</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>BASIC PROGRAMMING VIRTUAL LAB</h1>
+  </header>
+
+  <main>
+    <section class="algorithm-cards">
+      <div class="card">
+        <h2>Bubble Sort</h2>
+        <img src="img/bubble.png" alt="Bubble Sort">
+        <button onclick="showExplanation('bubble')">Penjelasan</button>
+        <a href="pages/bubble-sort.html"><button>Mulai</button></a>
+      </div>
+
+      <div class="card">
+        <h2>Selection Sort</h2>
+        <img src="img/selection.png" alt="Selection Sort">
+        <button onclick="showExplanation('selection')">Penjelasan</button>
+        <button>Mulai</button>
+      </div>
+
+      <div class="card">
+        <h2>Insertion Sort</h2>
+        <img src="img/insertion.png" alt="Insertion Sort">
+        <button onclick="showExplanation('insertion')">Penjelasan</button>
+        <button>Mulai</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="explanation-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <p id="explanation-text"></p>
+    </div>
+  </div>
+</body>
+</html>

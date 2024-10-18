@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Sort</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/bubbleSort.js" defer></script>
+</head>
+<body>
+  <nav>
+    <button onclick="window.location.href='../index.html'">Kembali</button>
+  </nav>
+
+  <header>
+    <h1>BUBBLE SORT</h1>
+  </header>
+
+  <main>
+    <label for="numCount">Masukkan Jumlah Angka (max 10):</label>
+    <input type="number" id="numCount" min="1" max="10" value="1" oninput="validateInput()">
+    <button id="generate-btn" onclick="generateNumbers()" disabled>Generate Angka</button>
+
+    <div id="number-container" class="number-container"></div>
+
+    <div class="controls">
+      <button onclick="startSorting()">Mulai</button>
+      <button onclick="nextStep()">Next</button>
+      <button onclick="resetNumbers()">Reset</button>
+    </div>
+
+    <p id="status-text"></p>
+  </main>
+
+  <script>
+    function validateInput() {
+      const numCountElement = document.getElementById('numCount');
+      const generateBtn = document.getElementById('generate-btn');
+      const value = parseInt(numCountElement.value);
+
+      // Validasi untuk memastikan nilai berada di antara 1 dan 10
+      if (value >= 1 && value <= 10) {
+        generateBtn.disabled = false; // Aktifkan tombol jika input valid
+      } else {
+        generateBtn.disabled = true; // Nonaktifkan tombol jika input tidak valid
+      }
+    }
+  </script>
+</body>
+</html>

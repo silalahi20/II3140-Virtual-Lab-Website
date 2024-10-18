@@ -1,0 +1,265 @@
+/* General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #74b9ff, #81ecec);
+  color: #2d3436;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+header {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Layout */
+.algorithm-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2rem;
+  gap: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  height: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h2 {
+  margin: 1rem 0;
+  color: #2d3436;
+  font-weight: 500;
+}
+
+button {
+  margin-top: 10px;
+  position: relative;
+  padding: .5rem 1.5rem;
+  border: none;
+  background: linear-gradient(45deg, #6c5ce7, #81ecec);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #74b9ff, #a29bfe);
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 50%;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ff7675;
+}
+
+/* Navigation Bar */
+nav {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  background: #00cec9;
+  color: black;
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+}
+
+nav button:hover {
+  background: #81ecec;
+}
+
+/* Number Container */
+#number-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.number {
+  background: #ffeaa7;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.number:active {
+  transform: scale(1.1);
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.controls button {
+  padding: 0.5rem 2rem;
+  background: #fd79a8;
+  color: white;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+}
+
+.controls button:hover {
+  background: #fab1a0;
+}
+
+/* Status Text */
+#status-text {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #d63031;
+  text-align: center;
+  font-weight: bold;
+}
+
+.number-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.number {
+  background: #ffeaa7;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.number:active {
+  transform: scale(1.1);
+}
+
+.highlight {
+  background-color: #74b9ff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.number-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.number {
+  background: #ffeaa7;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: not-allowed;
+  transition: transform 0.2s, background-color 0.3s;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 50px;
+}
+
+.number:active {
+  transform: scale(1.1);
+}
+
+.highlight {
+  background-color: #74b9ff;
+  color: white;
+  cursor: grab;
+  animation: highlight-pulse 1s infinite;
+}
+
+@keyframes highlight-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
