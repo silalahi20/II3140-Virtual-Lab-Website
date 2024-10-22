@@ -263,3 +263,46 @@ nav button:hover {
   }
 }
 
+/* Highlight untuk bilangan yang sedang disisipkan */
+.current-element {
+  background-color: #ff7675; /* Warna merah muda untuk elemen yang sedang ditinjau */
+  color: white;
+  cursor: grab;
+  animation: highlight-pulse 1s infinite;
+}
+
+/* Highlight untuk bilangan yang sedang dibandingkan */
+.compared-element {
+  background-color: #74b9ff; /* Warna biru untuk bilangan yang sedang dibandingkan */
+  color: white;
+  cursor: grab;
+}
+
+/* Animasi Highlight */
+@keyframes highlight-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.current-element {
+  background-color: blue;
+  color: white;
+}
+
+.min-element {
+  background-color: red;
+  color: white;
+}
+
+.sorted-element {
+  background-color: green;
+  color: white;
+}
+
