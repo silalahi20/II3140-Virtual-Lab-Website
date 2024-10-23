@@ -306,3 +306,8 @@ nav button:hover {
   color: white;
 }
 
+.number-container.sorted-complete .number.sorted-element {
+  pointer-events: none;
+  cursor: default;
+  transition: none; /* Hilangkan transisi */
+}
