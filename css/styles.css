@@ -311,3 +311,45 @@ nav button:hover {
   cursor: default;
   transition: none; /* Hilangkan transisi */
 }
+
+.number {
+  background: #ffeaa7;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.number:active {
+  transform: scale(1.1);
+}
+
+.current-element {
+  background-color: #74b9ff; /* Highlight untuk elemen saat ini */
+  color: white;
+}
+
+.min-element {
+  background-color: #ff7675; /* Highlight merah untuk elemen yang lebih kecil */
+  color: white;
+}
+
+.compared-element {
+  background-color: #74b9ff; /* Highlight biru untuk elemen yang dibandingkan */
+ 
+}
+
+.number.sorted {
+  background-color: #90EE90; /* Light green */
+  transition: background-color 0.3s ease;
+}
+
+/* Remove other highlight effects when sorted */
+.number.sorted.current-element,
+.number.sorted.compared-element {
+  background-color: #90EE90 !important;
+  border-color: initial !important;
+}

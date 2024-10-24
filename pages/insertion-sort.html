@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insertion Sort</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/insertionSort.js" defer></script>
+</head>
+<body>
+  <nav>
+    <button onclick="window.location.href='../index.html'">Kembali</button>
+  </nav>
+
+  <header>
+    <h1>INSERTION SORT</h1>
+  </header>
+
+  <main>
+    <label for="numCount">Masukkan Jumlah Angka (max 10):</label>
+    <input type="number" id="numCount" min="1" max="10" value="1" oninput="validateInput()">
+    <button id="generate-btn" onclick="generateNumbers()" disabled>Generate Angka</button>
+
+    <div id="number-container" class="number-container"></div>
+
+    <div class="controls">
+      <button onclick="startSorting()">Mulai</button>
+      <button onclick="nextStep()">Next</button>
+      <button onclick="resetNumbers()">Reset</button>
+    </div>
+
+    <p id="status-text"></p>
+  </main>
+
+  <script>
+    function validateInput() {
+      const numCountElement = document.getElementById('numCount');
+      const generateBtn = document.getElementById('generate-btn');
+      const value = parseInt(numCountElement.value);
+
+      if (value >= 1 && value <= 10) {
+        generateBtn.disabled = false;
+      } else {
+        generateBtn.disabled = true;
+      }
+    }
+  </script>
+</body>
+</html>
