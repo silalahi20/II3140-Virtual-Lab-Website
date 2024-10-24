@@ -1,5 +1,6 @@
-/* General Styling */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* General Styling */
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -275,3 +276,56 @@ nav button:hover {
   50% { transform: scale(1.02); }
   100% { transform: scale(1); }
 }
+
+/* Responsiveness for smaller devices */
+@media (max-width: 768px) {
+  .algorithm-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .controls button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .card img {
+    width: 150px;
+    height: 150px;
+  }
+
+  button {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+
