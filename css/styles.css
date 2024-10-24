@@ -5,7 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #74b9ff, #81ecec);
+  background: #dbe8f5;
   color: #2d3436;
   min-height: 100vh;
   display: flex;
@@ -67,21 +67,27 @@ header {
   font-weight: 500;
 }
 
+/* Button Styles */
 button {
   margin-top: 10px;
-  position: relative;
-  padding: .5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border: none;
-  background: linear-gradient(45deg, #6c5ce7, #81ecec);
-  color: rgb(255, 255, 255);
+  background: #75B9BE;
+  color: white;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 1rem;
-  transition: background 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background: linear-gradient(45deg, #74b9ff, #a29bfe);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 /* Modal Styling */
@@ -130,101 +136,21 @@ nav button {
   color: black;
   border-radius: 25px;
   font-weight: bold;
-  border: none;
 }
 
 nav button:hover {
   background: #81ecec;
 }
 
-/* Number Container */
+/* Number Container and Controls */
 #number-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 1rem 0;
-  flex-wrap: wrap;
-}
-
-.number {
-  background: #ffeaa7;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-  transition: transform 0.2s;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.number:active {
-  transform: scale(1.1);
-}
-
-/* Controls Section */
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.controls button {
-  padding: 0.5rem 2rem;
-  background: #fd79a8;
-  color: white;
-  font-size: 1rem;
-  border-radius: 25px;
-  border: none;
-}
-
-.controls button:hover {
-  background: #fab1a0;
-}
-
-/* Status Text */
-#status-text {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #d63031;
-  text-align: center;
-  font-weight: bold;
-}
-
-.number-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.number {
-  background: #ffeaa7;
+  margin: 20px 0;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-  transition: transform 0.2s;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.number:active {
-  transform: scale(1.1);
-}
-
-.highlight {
-  background-color: #74b9ff;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.number-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  border-radius: 8px;
+  flex-wrap: wrap;
 }
 
 .number {
@@ -240,10 +166,42 @@ nav button:hover {
   width: 50px;
 }
 
-.number:active {
+.number:not(.sorted-element):hover {
   transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 20px 0;
+}
+
+.controls button {
+  padding: 8px 15px;
+  background: #d7327a;
+  color: white;
+  border-radius: 20px;
+}
+
+.controls button:hover:not(:disabled) {
+  background: #e35593;
+}
+
+/* Status Text */
+#status-text {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1.1em;
+  color: #d63031;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Highlight States */
 .highlight {
   background-color: #74b9ff;
   color: white;
@@ -251,105 +209,69 @@ nav button:hover {
   animation: highlight-pulse 1s infinite;
 }
 
-@keyframes highlight-pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Highlight untuk bilangan yang sedang disisipkan */
 .current-element {
-  background-color: #ff7675; /* Warna merah muda untuk elemen yang sedang ditinjau */
+  background-color: #007bff;
   color: white;
-  cursor: grab;
-  animation: highlight-pulse 1s infinite;
+  border-color: #0056b3;
 }
 
-/* Highlight untuk bilangan yang sedang dibandingkan */
 .compared-element {
-  background-color: #74b9ff; /* Warna biru untuk bilangan yang sedang dibandingkan */
-  color: white;
-  cursor: grab;
-}
-
-/* Animasi Highlight */
-@keyframes highlight-pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.current-element {
-  background-color: blue;
+  background-color: #74b9ff;
   color: white;
 }
 
 .min-element {
-  background-color: red;
+  background-color: #dc3545;
   color: white;
+  border-color: #bd2130;
 }
 
 .sorted-element {
-  background-color: green;
+  background-color: #28a745;
   color: white;
+  border-color: #1e7e34;
+}
+
+/* Sorting Complete Styles */
+.container-highlight-complete {
+  background-color: #e6ffe6;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.5s ease;
+}
+
+.number.sorting-complete {
+  background-color: #4CAF50;
+  color: white;
+  transition: all 0.5s ease;
 }
 
 .number-container.sorted-complete .number.sorted-element {
   pointer-events: none;
   cursor: default;
-  transition: none; /* Hilangkan transisi */
+  transition: none;
 }
 
-.number {
-  background: #ffeaa7;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-  transition: transform 0.2s;
-  font-size: 1.2rem;
-  font-weight: bold;
+.sorted-complete .number:hover {
+  transform: none;
+  box-shadow: none;
+  cursor: default;
 }
 
-.number:active {
-  transform: scale(1.1);
+/* Animations */
+@keyframes highlight-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
-.current-element {
-  background-color: #74b9ff; /* Highlight untuk elemen saat ini */
-  color: white;
+.sorting-complete-animation {
+  animation: completionPulse 1s ease infinite;
 }
 
-.min-element {
-  background-color: #ff7675; /* Highlight merah untuk elemen yang lebih kecil */
-  color: white;
-}
-
-.compared-element {
-  background-color: #74b9ff; /* Highlight biru untuk elemen yang dibandingkan */
- 
-}
-
-.number.sorted {
-  background-color: #90EE90; /* Light green */
-  transition: background-color 0.3s ease;
-}
-
-/* Remove other highlight effects when sorted */
-.number.sorted.current-element,
-.number.sorted.compared-element {
-  background-color: #90EE90 !important;
-  border-color: initial !important;
+@keyframes completionPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }

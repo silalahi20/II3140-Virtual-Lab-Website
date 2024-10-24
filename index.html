@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>BASIC PROGRAMMING VIRTUAL LAB</h1>
+    <h1>BASIC SORTING VIRTUAL LAB</h1>
   </header>
 
   <main>
@@ -17,22 +17,22 @@
       <div class="card">
         <h2>Bubble Sort</h2>
         <img src="img/bubble.png" alt="Bubble Sort">
-        <button onclick="showExplanation('bubble')">Penjelasan</button>
-        <a href="pages/bubble-sort.html"><button>Mulai</button></a>
+        <button onclick="showExplanation('bubble')">Explanation</button>
+        <a href="pages/bubble-sort.html"><button>Start</button></a>
       </div>
 
       <div class="card">
         <h2>Selection Sort</h2>
         <img src="img/selection.png" alt="Selection Sort">
-        <button onclick="showExplanation('selection')">Penjelasan</button>
-        <a href="pages/selection-sort.html"><button>Mulai</button></a>
+        <button onclick="showExplanation('selection')">Explanation</button>
+        <a href="pages/selection-sort.html"><button>Start</button></a>
       </div>
 
       <div class="card">
         <h2>Insertion Sort</h2>
         <img src="img/insertion.png" alt="Insertion Sort">
-        <button onclick="showExplanation('insertion')">Penjelasan</button>
-        <a href="pages/insertion-sort.html"><button>Mulai</button></a>
+        <button onclick="showExplanation('insertion')">Explanation</button>
+        <a href="pages/insertion-sort.html"><button>Start</button></a>
       </div>
       
     </section>
@@ -41,8 +41,9 @@
   <div id="explanation-modal" class="modal">
     <div class="modal-content">
       <span class="close-button" onclick="closeModal()">&times;</span>
-      <p id="explanation-text"></p>
+      <div id="explanation-text"></div>
+      <iframe id="explanation-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
     </div>
-  </div>
+  </div>  
 </body>
 </html>

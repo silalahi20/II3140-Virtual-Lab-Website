@@ -1,3 +1,40 @@
+// window.onload = function() {
+//   const modal = document.getElementById('explanation-modal');
+//   modal.style.display = 'none';
+// };
+
+// function showExplanation(type) {
+//   const modal = document.getElementById('explanation-modal');
+//   const text = document.getElementById('explanation-text');
+
+//   if (type === 'bubble') {
+//     text.innerHTML = `
+//       <h3>Bubble Sort</h3>
+//       <p>- Algoritma sederhana yang menukar elemen bersebelahan.</p>
+//       <p>- Kompleksitas waktu: O(n^2).</p>
+//     `;
+//   } else if (type === 'selection') {
+//     text.innerHTML = `
+//       <h3>Selection Sort</h3>
+//       <p>- Memilih elemen terkecil dan menempatkannya di posisi yang tepat.</p>
+//       <p>- Kompleksitas waktu: O(n^2).</p>
+//     `;
+//   } else if (type === 'insertion') {
+//     text.innerHTML = `
+//       <h3>Insertion Sort</h3>
+//       <p>- Menyisipkan elemen pada posisi yang benar.</p>
+//       <p>- Cocok untuk dataset kecil atau hampir terurut.</p>
+//     `;
+//   }
+
+//   modal.style.display = 'flex';
+// }
+
+// function closeModal() {
+//   const modal = document.getElementById('explanation-modal');
+//   modal.style.display = 'none';
+// }
+
 window.onload = function() {
   const modal = document.getElementById('explanation-modal');
   modal.style.display = 'none';
@@ -6,25 +43,29 @@ window.onload = function() {
 function showExplanation(type) {
   const modal = document.getElementById('explanation-modal');
   const text = document.getElementById('explanation-text');
+  const video = document.getElementById('explanation-video');
 
   if (type === 'bubble') {
     text.innerHTML = `
       <h3>Bubble Sort</h3>
-      <p>- Algoritma sederhana yang menukar elemen bersebelahan.</p>
-      <p>- Kompleksitas waktu: O(n^2).</p>
+      <p>Algoritma sederhana yang menukar elemen bersebelahan.</p>
+      <p>Kompleksitas waktu: O(n^2).</p>
     `;
+    video.src = "https://www.youtube.com/watch?v=xli_FI7CuzA"; // URL for Bubble Sort video
   } else if (type === 'selection') {
     text.innerHTML = `
       <h3>Selection Sort</h3>
-      <p>- Memilih elemen terkecil dan menempatkannya di posisi yang tepat.</p>
-      <p>- Kompleksitas waktu: O(n^2).</p>
+      <p>Memilih elemen terkecil dan menempatkannya di posisi yang tepat.</p>
+      <p>Kompleksitas waktu: O(n^2).</p>
     `;
+    video.src = "https://www.youtube.com/watch?v=g-PGLbMth_g"; // URL for Selection Sort video
   } else if (type === 'insertion') {
     text.innerHTML = `
       <h3>Insertion Sort</h3>
-      <p>- Menyisipkan elemen pada posisi yang benar.</p>
-      <p>- Cocok untuk dataset kecil atau hampir terurut.</p>
+      <p>Menyisipkan elemen pada posisi yang benar.</p>
+      <p>Cocok untuk dataset kecil atau hampir terurut.</p>
     `;
+    video.src = "https://www.youtube.com/embed/g-Pe39ZzK0I"; // URL for Insertion Sort video
   }
 
   modal.style.display = 'flex';
@@ -33,4 +74,8 @@ function showExplanation(type) {
 function closeModal() {
   const modal = document.getElementById('explanation-modal');
   modal.style.display = 'none';
+  
+  // Reset video source to stop the video when modal is closed
+  const video = document.getElementById('explanation-video');
+  video.src = "";
 }

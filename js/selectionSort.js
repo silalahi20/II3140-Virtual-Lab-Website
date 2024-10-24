@@ -4,16 +4,30 @@ let isStarted = false;
 let minIndex = 0;
 let draggedElementIndex = null;
 let sortedIndices = []; // Array to track sorted elements
+let initialNumbers = [];  // Menyimpan urutan awal angka
 
 function generateNumbers() {
-  const count = document.getElementById('numCount').value;
-  numbers = Array.from({ length: count }, () => Math.floor(Math.random() * 100));
-  sortedIndices = []; // Reset sorted elements
+  const count = parseInt(document.getElementById('numCount').value);
+
+  // Create array of sequential numbers from 0 to 99
+  const pool = Array.from({ length: 100 }, (_, index) => index);
+
+  // Shuffle the first 'count' elements
+  for (let i = 0; i < count; i++) {
+    const j = Math.floor(Math.random() * (pool.length - i)) + i;
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  // Take only the first 'count' elements
+  numbers = pool.slice(0, count);
+
+  initialNumbers = [...numbers];  // Simpan urutan awal angka
+  sortedIndices = [];              // Reset sorted indices on new generation
   displayNumbers();
   resetHighlight();
   document.querySelector('.controls button[onclick="nextStep()"]').disabled = true;
-  document.getElementById('number-container').classList.remove('sorted-complete'); // Remove sorted-complete class if resetting
 }
+
 
 function displayNumbers() {
   const container = document.getElementById('number-container');
@@ -158,9 +172,12 @@ function nextStep() {
 }
 
 function resetNumbers() {
-  generateNumbers();
-  isStarted = false;  // Reset status sorting
+  numbers = [...initialNumbers];  // Kembalikan ke urutan awal
+  sortedIndices = [];              // Reset the sorted indices array
+  displayNumbers();
+  isStarted = false;               // Reset status sorting
   document.getElementById('status-text').innerText = '';
-  resetHighlight();
+  resetHighlight();                // Reset any highlights on numbers
 }
+
 

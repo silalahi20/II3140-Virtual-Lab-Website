@@ -1,19 +1,29 @@
 let numbers = [];
 let currentIndex = 1;
+let initialNumbers = []; 
 let isStarted = false;
 let draggedElementIndex = null;
 let compareIndex = 0;
 
 function generateNumbers() {
-  const count = document.getElementById('numCount').value;
-  numbers = Array.from({ length: count }, () => Math.floor(Math.random() * 100));
+  const count = parseInt(document.getElementById('numCount').value);
+  
+  // Create array of sequential numbers from 0 to 99
+  const pool = Array.from({ length: 100 }, (_, index) => index);
+  
+  // Shuffle the first 'count' elements
+  for (let i = 0; i < count; i++) {
+    const j = Math.floor(Math.random() * (pool.length - i)) + i;
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  
+  // Take only the first 'count' elements
+  numbers = pool.slice(0, count);
+  
+  initialNumbers = [...numbers];  // Simpan urutan awal angka
   displayNumbers();
   resetHighlight();
   document.querySelector('.controls button[onclick="nextStep()"]').disabled = true;
-  document.getElementById('number-container').classList.remove('sorted-complete');
-  // Remove any completion highlighting
-  const allNumbers = document.querySelectorAll('.number');
-  allNumbers.forEach(el => el.classList.remove('sorted'));
 }
 
 function displayNumbers() {
@@ -179,22 +189,38 @@ function nextStep() {
   }
 }
 
+// function completeSorting() {
+//   isStarted = false;
+//   document.getElementById('status-text').innerText = 'Insertion Sort Complete!';
+//   document.getElementById('number-container').classList.add('sorted-complete');
+//   document.querySelector('.controls button[onclick="nextStep()"]').disabled = true;
+  
+//   // Remove any existing highlights
+//   resetHighlight();
+  
+//   // Add green highlight to all numbers
+//   const allNumbers = document.querySelectorAll('.number');
+//   allNumbers.forEach(el => el.classList.add('sorted'));
+// }
+
 function completeSorting() {
   isStarted = false;
   document.getElementById('status-text').innerText = 'Insertion Sort Complete!';
   document.getElementById('number-container').classList.add('sorted-complete');
   document.querySelector('.controls button[onclick="nextStep()"]').disabled = true;
-  
+
   // Remove any existing highlights
   resetHighlight();
-  
+
   // Add green highlight to all numbers
   const allNumbers = document.querySelectorAll('.number');
-  allNumbers.forEach(el => el.classList.add('sorted'));
+  allNumbers.forEach(el => {
+    el.classList.add('sorted-element'); // Ensure this class is added for sorted highlight
+  });
 }
-
 function resetNumbers() {
-  generateNumbers();
+  numbers = [...initialNumbers];  // Kembalikan ke urutan awal
+  displayNumbers();
   isStarted = false;
   document.getElementById('status-text').innerText = '';
   resetHighlight();

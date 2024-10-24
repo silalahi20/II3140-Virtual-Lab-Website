@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Selection Sort</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <!-- <link rel="stylesheet" href="../css/selection.css"> -->
   <script src="../js/selectionSort.js" defer></script>
 </head>
 <body>
   <nav>
-    <button onclick="window.location.href='../index.html'">Kembali</button>
+    <button onclick="window.location.href='../index.html'">Back</button>
   </nav>
 
   <header>
@@ -17,14 +18,14 @@
   </header>
 
   <main>
-    <label for="numCount">Masukkan Jumlah Angka (max 10):</label>
+    <label for="numCount">Masukkan Jumlah Angka (maks 10):</label>
     <input type="number" id="numCount" min="1" max="10" value="1" oninput="validateInput()">
     <button id="generate-btn" onclick="generateNumbers()" disabled>Generate Angka</button>
 
     <div id="number-container" class="number-container"></div>
 
     <div class="controls">
-      <button onclick="startSorting()">Mulai</button>
+      <button onclick="startSorting()">Start</button>
       <button onclick="nextStep()">Next</button>
       <button onclick="resetNumbers()">Reset</button>
     </div>
